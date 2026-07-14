@@ -5,13 +5,12 @@ export default function FederationAuthority() {
   return (
     <section className="bg-(--rx-steel) py-12 md:py-24">
       <div className="max-w-5xl mx-auto px-6 flex flex-col md:flex-row gap-12 items-center">
-        {/* h-auto eklenerek Next.js aspect-ratio uyarıları tamamen giderildi */}
         <Image
           src="/media/koray-girgin.jpeg"
           alt="Koray Girgin"
-          width={192} 
-          height={192} 
-          className="object-cover rounded-sm grayscale"
+          width={192}
+          height={192}
+          className="object-cover rounded-sm"
         />
         <div>
           <span className="text-(--rx-brass) text-xs uppercase tracking-widest">Kurucu</span>

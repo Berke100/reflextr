@@ -1,10 +1,4 @@
-import type { Metadata } from "next";
 import Image from "next/image";
-
-export const metadata: Metadata = {
-  title: "Hakkımızda | Reflex",
-  description: "Reflex'in kurucusu Koray Girgin ve federasyon tecrübesiyle şekillenen marka hikayesi.",
-};
 
 export default function AboutPage() {
   return (
@@ -16,13 +10,7 @@ export default function AboutPage() {
         </h1>
 
         <div className="relative w-full h-80 mb-8">
-          {/* Görsel formatı .jpeg yapıldı ve siyah-beyaz efekti kaldırıldı */}
-          <Image 
-            src="/media/koray-girgin.jpeg" 
-            alt="Koray Girgin" 
-            fill 
-            className="object-cover" 
-          />
+          <Image src="/media/koray-girgin.jpeg" alt="Koray Girgin" fill className="object-cover grayscale" />
         </div>
 
         <div className="text-(--rx-bone)/70 space-y-4 text-sm leading-relaxed">
