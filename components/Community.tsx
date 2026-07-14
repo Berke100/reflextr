@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Image from "next/image";
 
 const posts = [
@@ -13,16 +13,28 @@ export default function Community() {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   function showPrev() {
-    if (openIndex === null) return;
-    setOpenIndex((openIndex - 1 + posts.length) % posts.length);
+    setOpenIndex((prev) => (prev === null ? null : (prev - 1 + posts.length) % posts.length));
   }
 
   function showNext() {
-    if (openIndex === null) return;
-    setOpenIndex((openIndex + 1) % posts.length);
+    setOpenIndex((prev) => (prev === null ? null : (prev + 1) % posts.length));
   }
 
-  // TypeScript'in 'null' index hatasını engellemek için güvenli daraltma yapıyoruz
+  // Klavye kontrolü: Bağımlılık zincirini sadeleştirerek en güvenli hale getirdik
+  useEffect(() => {
+    if (openIndex === null) return;
+
+    function handleKeyDown(e: KeyboardEvent) {
+      if (e.key === "Escape") setOpenIndex(null);
+      if (e.key === "ArrowLeft") showPrev();
+      if (e.key === "ArrowRight") showNext();
+    }
+
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [openIndex]);
+
+  // TypeScript 'null' index hatasını engellemek için güvenli daraltma yapıyoruz
   const activePost = openIndex !== null ? posts[openIndex] : null;
 
   return (
@@ -50,7 +62,7 @@ export default function Community() {
         ))}
       </div>
 
-      {/* Eksik olan <a açılış etiketi eklendi */}
+      {/* Eksik olan <a açılış etiketi buraya eklendi */}
       <a
         href="https://www.instagram.com/reflextr/"
         target="_blank"
