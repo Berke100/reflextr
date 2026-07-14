@@ -1,5 +1,6 @@
 "use client";
 import { useState } from "react";
+import CalculatorNav from "@/components/CalculatorNav";
 
 export default function OneRepMaxPage() {
   const [weight, setWeight] = useState("");
@@ -12,6 +13,8 @@ export default function OneRepMaxPage() {
   return (
     <main className="min-h-screen bg-(--rx-ink) pt-32 pb-24 px-6">
       <div className="max-w-md mx-auto">
+        <CalculatorNav current="/1rm" />
+
         <h1 className="font-(--font-display) text-3xl text-(--rx-bone) uppercase mb-2">
           1RM Hesaplama
         </h1>
@@ -20,22 +23,12 @@ export default function OneRepMaxPage() {
         </p>
 
         <label className="block text-sm text-(--rx-bone)/70 mb-1">Kaldırdığın ağırlık (kg)</label>
-        <input
-          type="number"
-          value={weight}
-          onChange={(e) => setWeight(e.target.value)}
-          className="w-full bg-(--rx-steel) border border-white/10 text-(--rx-bone) px-4 py-3 mb-4"
-          placeholder="örn. 80"
-        />
+        <input type="number" value={weight} onChange={(e) => setWeight(e.target.value)}
+          className="w-full bg-(--rx-steel) border border-white/10 text-(--rx-bone) px-4 py-3 mb-4" placeholder="örn. 80" />
 
         <label className="block text-sm text-(--rx-bone)/70 mb-1">Tekrar sayısı</label>
-        <input
-          type="number"
-          value={reps}
-          onChange={(e) => setReps(e.target.value)}
-          className="w-full bg-(--rx-steel) border border-white/10 text-(--rx-bone) px-4 py-3 mb-8"
-          placeholder="örn. 5"
-        />
+        <input type="number" value={reps} onChange={(e) => setReps(e.target.value)}
+          className="w-full bg-(--rx-steel) border border-white/10 text-(--rx-bone) px-4 py-3 mb-8" placeholder="örn. 5" />
 
         {oneRM && (
           <div className="border border-(--rx-brass) p-6 text-center">

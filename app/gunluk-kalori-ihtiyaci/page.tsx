@@ -1,5 +1,6 @@
 "use client";
 import { useState } from "react";
+import CalculatorNav from "@/components/CalculatorNav";
 
 const activityLevels = [
   { label: "Hareketsiz", multiplier: 1.2 },
@@ -31,6 +32,8 @@ export default function CaloriePage() {
   return (
     <main className="min-h-screen bg-(--rx-ink) pt-32 pb-24 px-6">
       <div className="max-w-md mx-auto">
+        <CalculatorNav current="/gunluk-kalori-ihtiyaci" />
+
         <h1 className="font-(--font-display) text-3xl text-(--rx-bone) uppercase mb-2">
           Günlük Kalori İhtiyacı
         </h1>

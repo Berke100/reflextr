@@ -1,5 +1,6 @@
 "use client";
 import { useState } from "react";
+import CalculatorNav from "@/components/CalculatorNav";
 
 const categories = [
   { max: 18.5, label: "Zayıf" },
@@ -20,6 +21,8 @@ export default function BmiPage() {
   return (
     <main className="min-h-screen bg-(--rx-ink) pt-32 pb-24 px-6">
       <div className="max-w-md mx-auto">
+        <CalculatorNav current="/vucut-kitle-indeksi" />
+
         <h1 className="font-(--font-display) text-3xl text-(--rx-bone) uppercase mb-2">
           Vücut Kitle İndeksi
         </h1>

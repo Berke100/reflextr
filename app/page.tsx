@@ -1,4 +1,3 @@
-import Header from "@/components/Header";
 import Hero from "@/components/Hero";
 import ValueProps from "@/components/ValueProps";
 import ClubFinder from "@/components/ClubFinder";
@@ -8,12 +7,10 @@ import Blog from "@/components/Blog";
 import AppPromo from "@/components/AppPromo";
 import Community from "@/components/Community";
 import FederationAuthority from "@/components/FederationAuthority";
-import Footer from "@/components/Footer";
 
 export default function Home() {
   return (
     <main>
-      <Header />
       <Hero />
       <ValueProps />
       <ClubFinder />
@@ -23,7 +20,6 @@ export default function Home() {
       <AppPromo />
       <Community />
       <FederationAuthority />
-      <Footer />
     </main>
   );
 }

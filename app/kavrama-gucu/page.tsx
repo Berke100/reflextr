@@ -1,5 +1,6 @@
 "use client";
 import { useState } from "react";
+import CalculatorNav from "@/components/CalculatorNav";
 
 const levels = [
   { max: 30, label: "Başlangıç", desc: "Temel kavrama antrenmanına başla." },
@@ -16,6 +17,8 @@ export default function GripStrengthPage() {
   return (
     <main className="min-h-screen bg-(--rx-ink) pt-32 pb-24 px-6">
       <div className="max-w-md mx-auto">
+        <CalculatorNav current="/kavrama-gucu" />
+
         <span className="text-(--rx-brass) text-xs uppercase tracking-widest">Reflex Özel</span>
         <h1 className="font-(--font-display) text-3xl text-(--rx-bone) uppercase mt-2 mb-2">
           Kavrama Gücü Skoru
