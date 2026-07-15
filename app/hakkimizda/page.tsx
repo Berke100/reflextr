@@ -10,7 +10,7 @@ export default function AboutPage() {
         </h1>
 
         <div className="relative w-full h-80 mb-8">
-          <Image src="/media/koray-girgin.jpeg" alt="Koray Girgin" fill className="object-cover grayscale" />
+          <Image src="/media/koray-girgin.jpeg" alt="Koray Girgin" fill className="object-cover" />
         </div>
 
         <div className="text-(--rx-bone)/70 space-y-4 text-sm leading-relaxed">

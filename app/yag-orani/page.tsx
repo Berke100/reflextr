@@ -38,8 +38,10 @@ export default function BodyFatPage() {
             <button
               key={g}
               onClick={() => setGender(g)}
-              className={`px-4 py-2 text-sm border ${
-                gender === g ? "bg-(--rx-ember) border-(--rx-ember) text-white" : "border-white/20 text-(--rx-bone)/80"
+              className={`px-4 py-2 text-sm border cursor-pointer transition-colors rounded-sm font-medium ${
+                gender === g 
+                  ? "bg-(--rx-action) border-(--rx-action) text-white" 
+                  : "border-white/20 text-(--rx-bone)/80 hover:border-white/40"
               }`}
             >
               {g === "erkek" ? "Erkek" : "Kadın"}
@@ -48,29 +50,45 @@ export default function BodyFatPage() {
         </div>
 
         <label className="block text-sm text-(--rx-bone)/70 mb-1">Boy (cm)</label>
-        <input type="number" value={height} onChange={(e) => setHeight(e.target.value)}
-          className="w-full bg-(--rx-steel) border border-white/10 text-(--rx-bone) px-4 py-3 mb-4" />
+        <input 
+          type="number" 
+          value={height} 
+          onChange={(e) => setHeight(e.target.value)}
+          className="w-full bg-(--rx-steel) border border-white/10 text-(--rx-bone) px-4 py-3 mb-4 focus:outline-none focus:border-(--rx-ember) transition-colors rounded-sm" 
+        />
 
         <label className="block text-sm text-(--rx-bone)/70 mb-1">Bel çevresi (cm)</label>
-        <input type="number" value={waist} onChange={(e) => setWaist(e.target.value)}
-          className="w-full bg-(--rx-steel) border border-white/10 text-(--rx-bone) px-4 py-3 mb-4" />
+        <input 
+          type="number" 
+          value={waist} 
+          onChange={(e) => setWaist(e.target.value)}
+          className="w-full bg-(--rx-steel) border border-white/10 text-(--rx-bone) px-4 py-3 mb-4 focus:outline-none focus:border-(--rx-ember) transition-colors rounded-sm" 
+        />
 
         <label className="block text-sm text-(--rx-bone)/70 mb-1">Boyun çevresi (cm)</label>
-        <input type="number" value={neck} onChange={(e) => setNeck(e.target.value)}
-          className="w-full bg-(--rx-steel) border border-white/10 text-(--rx-bone) px-4 py-3 mb-4" />
+        <input 
+          type="number" 
+          value={neck} 
+          onChange={(e) => setNeck(e.target.value)}
+          className="w-full bg-(--rx-steel) border border-white/10 text-(--rx-bone) px-4 py-3 mb-4 focus:outline-none focus:border-(--rx-ember) transition-colors rounded-sm" 
+        />
 
         {gender === "kadın" && (
           <>
             <label className="block text-sm text-(--rx-bone)/70 mb-1">Kalça çevresi (cm)</label>
-            <input type="number" value={hip} onChange={(e) => setHip(e.target.value)}
-              className="w-full bg-(--rx-steel) border border-white/10 text-(--rx-bone) px-4 py-3 mb-4" />
+            <input 
+              type="number" 
+              value={hip} 
+              onChange={(e) => setHip(e.target.value)}
+              className="w-full bg-(--rx-steel) border border-white/10 text-(--rx-bone) px-4 py-3 mb-4 focus:outline-none focus:border-(--rx-ember) transition-colors rounded-sm" 
+            />
           </>
         )}
 
         {result && result > 0 && (
-          <div className="border border-(--rx-brass) p-6 text-center mt-4">
-            <span className="text-xs text-(--rx-bone)/50 uppercase">Tahmini Yağ Oranı</span>
-            <div className="font-(--font-mono) text-4xl text-(--rx-ember) mt-2">
+          <div className="border border-(--rx-brass) p-6 text-center mt-4 bg-(--rx-steel) rounded-sm">
+            <span className="text-xs text-(--rx-bone)/50 uppercase tracking-wider">Tahmini Yağ Oranı</span>
+            <div className="font-(--font-mono) text-4xl text-(--rx-ember) mt-2 font-bold">
               %{result.toFixed(1)}
             </div>
           </div>

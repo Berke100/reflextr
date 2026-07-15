@@ -45,8 +45,8 @@ export default function ClubFinder() {
           <button
             key={c}
             onClick={() => { setCity(c); setOpenIndex(null); }}
-            className={`px-4 py-2 text-sm border ${
-              city === c ? "bg-(--rx-ember) border-(--rx-ember) text-white" : "border-white/20 text-(--rx-bone)/80"
+            className={`px-4 py-2 text-sm border cursor-pointer transition-colors ${
+              city === c ? "bg-(--rx-action) border-(--rx-action) text-white" : "border-white/20 text-(--rx-bone)/80"
             }`}
           >
             {c}
@@ -56,10 +56,10 @@ export default function ClubFinder() {
 
       <div className="grid md:grid-cols-3 gap-6">
         {filtered.map((c, i) => (
-          <div key={c.slug} className="bg-(--rx-steel) overflow-hidden">
+          <div key={c.slug} className="bg-(--rx-steel) overflow-hidden rounded-sm">
             <button
               onClick={() => setOpenIndex(i)}
-              className="relative w-full h-48 block group"
+              className="relative w-full h-48 block group cursor-pointer"
             >
               <Image
                 src={c.img}
@@ -70,7 +70,7 @@ export default function ClubFinder() {
               />
             </button>
             <Link href={`/kulupler/${c.slug}`} className="block p-4 hover:bg-white/5 transition-colors">
-              <h3 className="text-(--rx-bone) hover:text-(--rx-ember) transition-colors">{c.name}</h3>
+              <h3 className="text-(--rx-bone) hover:text-(--rx-ember) transition-colors font-medium">{c.name}</h3>
               <span className="text-xs text-(--rx-bone)/50">{c.city}</span>
             </Link>
           </div>
@@ -79,12 +79,12 @@ export default function ClubFinder() {
 
       {openIndex !== null && filtered[openIndex] && (
         <div
-          className="fixed inset-0 z-[100] bg-black/90 flex items-center justify-center px-6"
+          className="fixed inset-0 z-[100] bg-black/90 flex items-center justify-center px-6 cursor-pointer"
           onClick={() => setOpenIndex(null)}
         >
           <button
             onClick={(e) => { e.stopPropagation(); showPrev(); }}
-            className="absolute left-4 md:left-8 text-white text-3xl px-3"
+            className="absolute left-4 md:left-8 text-white text-3xl px-3 cursor-pointer select-none"
             aria-label="Önceki"
           >
             ‹
@@ -101,7 +101,7 @@ export default function ClubFinder() {
 
           <button
             onClick={(e) => { e.stopPropagation(); showNext(); }}
-            className="absolute right-4 md:right-8 text-white text-3xl px-3"
+            className="absolute right-4 md:right-8 text-white text-3xl px-3 cursor-pointer select-none"
             aria-label="Sonraki"
           >
             ›
@@ -109,7 +109,7 @@ export default function ClubFinder() {
 
           <button
             onClick={() => setOpenIndex(null)}
-            className="absolute top-6 right-6 text-white text-xl"
+            className="absolute top-6 right-6 text-white text-xl cursor-pointer"
             aria-label="Kapat"
           >
             ✕

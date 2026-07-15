@@ -46,8 +46,10 @@ export default function CaloriePage() {
             <button
               key={g}
               onClick={() => setGender(g)}
-              className={`px-4 py-2 text-sm border ${
-                gender === g ? "bg-(--rx-ember) border-(--rx-ember) text-white" : "border-white/20 text-(--rx-bone)/80"
+              className={`px-4 py-2 text-sm border cursor-pointer transition-colors rounded-sm font-medium ${
+                gender === g 
+                  ? "bg-(--rx-action) border-(--rx-action) text-white" 
+                  : "border-white/20 text-(--rx-bone)/80 hover:border-white/40"
               }`}
             >
               {g === "erkek" ? "Erkek" : "Kadın"}
@@ -56,22 +58,34 @@ export default function CaloriePage() {
         </div>
 
         <label className="block text-sm text-(--rx-bone)/70 mb-1">Yaş</label>
-        <input type="number" value={age} onChange={(e) => setAge(e.target.value)}
-          className="w-full bg-(--rx-steel) border border-white/10 text-(--rx-bone) px-4 py-3 mb-4" />
+        <input 
+          type="number" 
+          value={age} 
+          onChange={(e) => setAge(e.target.value)}
+          className="w-full bg-(--rx-steel) border border-white/10 text-(--rx-bone) px-4 py-3 mb-4 focus:outline-none focus:border-(--rx-ember) transition-colors rounded-sm" 
+        />
 
         <label className="block text-sm text-(--rx-bone)/70 mb-1">Boy (cm)</label>
-        <input type="number" value={height} onChange={(e) => setHeight(e.target.value)}
-          className="w-full bg-(--rx-steel) border border-white/10 text-(--rx-bone) px-4 py-3 mb-4" />
+        <input 
+          type="number" 
+          value={height} 
+          onChange={(e) => setHeight(e.target.value)}
+          className="w-full bg-(--rx-steel) border border-white/10 text-(--rx-bone) px-4 py-3 mb-4 focus:outline-none focus:border-(--rx-ember) transition-colors rounded-sm" 
+        />
 
         <label className="block text-sm text-(--rx-bone)/70 mb-1">Kilo (kg)</label>
-        <input type="number" value={weight} onChange={(e) => setWeight(e.target.value)}
-          className="w-full bg-(--rx-steel) border border-white/10 text-(--rx-bone) px-4 py-3 mb-4" />
+        <input 
+          type="number" 
+          value={weight} 
+          onChange={(e) => setWeight(e.target.value)}
+          className="w-full bg-(--rx-steel) border border-white/10 text-(--rx-bone) px-4 py-3 mb-4 focus:outline-none focus:border-(--rx-ember) transition-colors rounded-sm" 
+        />
 
         <label className="block text-sm text-(--rx-bone)/70 mb-1">Aktivite Seviyesi</label>
         <select
           value={activity.label}
           onChange={(e) => setActivity(activityLevels.find((l) => l.label === e.target.value)!)}
-          className="w-full bg-(--rx-steel) border border-white/10 text-(--rx-bone) px-4 py-3 mb-8"
+          className="w-full bg-(--rx-steel) border border-white/10 text-(--rx-bone) px-4 py-3 mb-8 focus:outline-none focus:border-(--rx-ember) transition-colors rounded-sm"
         >
           {activityLevels.map((l) => (
             <option key={l.label} value={l.label}>{l.label}</option>
@@ -79,9 +93,9 @@ export default function CaloriePage() {
         </select>
 
         {tdee && (
-          <div className="border border-(--rx-brass) p-6 text-center">
-            <span className="text-xs text-(--rx-bone)/50 uppercase">Günlük Kalori İhtiyacın</span>
-            <div className="font-(--font-mono) text-4xl text-(--rx-ember) mt-2">{tdee} kcal</div>
+          <div className="border border-(--rx-brass) p-6 text-center bg-(--rx-steel) rounded-sm">
+            <span className="text-xs text-(--rx-bone)/50 uppercase tracking-wider">Günlük Kalori İhtiyacın</span>
+            <div className="font-(--font-mono) text-4xl text-(--rx-ember) mt-2 font-bold">{tdee} kcal</div>
           </div>
         )}
       </div>

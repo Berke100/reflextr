@@ -22,9 +22,9 @@ export default function CalculatorNav({ current }: { current: string }) {
           <Link
             key={c.href}
             href={c.href}
-            className={`whitespace-nowrap px-3 py-1.5 text-xs border transition-colors ${
+            className={`whitespace-nowrap px-3 py-1.5 text-xs border transition-colors rounded-sm cursor-pointer ${
               c.href === current
-                ? "bg-(--rx-ember) border-(--rx-ember) text-white"
+                ? "bg-(--rx-action) border-(--rx-action) text-white"
                 : "border-white/20 text-(--rx-bone)/70 hover:border-white/40"
             }`}
           >
@@ -33,10 +33,10 @@ export default function CalculatorNav({ current }: { current: string }) {
         ))}
       </div>
       <div className="flex items-center justify-between border-t border-white/10 pt-4">
-        <Link href={prev.href} className="text-(--rx-bone)/60 text-sm hover:text-(--rx-bone)">
+        <Link href={prev.href} className="text-(--rx-bone)/60 text-sm hover:text-(--rx-bone) transition-colors">
           ‹ {prev.label}
         </Link>
-        <Link href={next.href} className="text-(--rx-bone)/60 text-sm hover:text-(--rx-bone)">
+        <Link href={next.href} className="text-(--rx-bone)/60 text-sm hover:text-(--rx-bone) transition-colors">
           {next.label} ›
         </Link>
       </div>

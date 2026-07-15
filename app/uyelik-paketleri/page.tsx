@@ -33,9 +33,11 @@ export default function MembershipPage() {
               }`}
             >
               <h3 className="text-(--rx-bone) font-(--font-display) text-xl uppercase">{p.name}</h3>
-              <div className="text-(--rx-ember) font-(--font-mono) text-2xl my-4">{p.price}</div>
+              {/* Fiyat alanlarının rengi yeşilden kırmızıya (rx-action) çekildi */}
+              <div className="text-(--rx-action) font-(--font-mono) text-2xl my-4">{p.price}</div>
               <p className="text-(--rx-bone)/60 text-sm mb-6">{p.note}</p>
-              <button className="w-full bg-(--rx-ember) text-white py-3 text-sm font-medium uppercase tracking-wider hover:bg-opacity-90 transition-opacity cursor-pointer">
+              {/* Buton arka planı kırmızı (rx-action) olmaya devam ediyor */}
+              <button className="w-full bg-(--rx-action) text-white py-3 text-sm font-medium uppercase tracking-wider hover:bg-opacity-90 transition-opacity cursor-pointer">
                 Üye Ol
               </button>
             </div>

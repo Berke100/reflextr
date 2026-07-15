@@ -22,9 +22,10 @@ export default function ArmWrestlingAcademyPage() {
           Teknik, kuvvet ve strateji eğitimleri federasyon onaylı eğitmenler
           eşliğinde veriliyor.
         </p>
+        {/* bg-(--rx-ember) -> bg-(--rx-action) olarak güncellendi ve rounded-sm ile stil birliği sağlandı */}
         <a 
           href="/iletisim" 
-          className="inline-block bg-(--rx-ember) text-white text-sm px-6 py-3 uppercase tracking-wider font-medium hover:bg-opacity-90 transition-opacity"
+          className="inline-block bg-(--rx-action) text-white text-sm px-6 py-3 uppercase tracking-wider font-medium hover:bg-opacity-90 transition-opacity rounded-sm cursor-pointer"
         >
           Akademiye Başvur
         </a>

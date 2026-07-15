@@ -23,17 +23,28 @@ export default function OneRepMaxPage() {
         </p>
 
         <label className="block text-sm text-(--rx-bone)/70 mb-1">Kaldırdığın ağırlık (kg)</label>
-        <input type="number" value={weight} onChange={(e) => setWeight(e.target.value)}
-          className="w-full bg-(--rx-steel) border border-white/10 text-(--rx-bone) px-4 py-3 mb-4" placeholder="örn. 80" />
+        <input 
+          type="number" 
+          value={weight} 
+          onChange={(e) => setWeight(e.target.value)}
+          className="w-full bg-(--rx-steel) border border-white/10 text-(--rx-bone) px-4 py-3 mb-4 focus:outline-none focus:border-(--rx-ember) transition-colors rounded-sm" 
+          placeholder="örn. 80" 
+        />
 
         <label className="block text-sm text-(--rx-bone)/70 mb-1">Tekrar sayısı</label>
-        <input type="number" value={reps} onChange={(e) => setReps(e.target.value)}
-          className="w-full bg-(--rx-steel) border border-white/10 text-(--rx-bone) px-4 py-3 mb-8" placeholder="örn. 5" />
+        <input 
+          type="number" 
+          value={reps} 
+          onChange={(e) => setReps(e.target.value)}
+          className="w-full bg-(--rx-steel) border border-white/10 text-(--rx-bone) px-4 py-3 mb-8 focus:outline-none focus:border-(--rx-ember) transition-colors rounded-sm" 
+          placeholder="örn. 5" 
+        />
 
         {oneRM && (
-          <div className="border border-(--rx-brass) p-6 text-center">
-            <span className="text-xs text-(--rx-bone)/50 uppercase">Tahmini 1RM</span>
-            <div className="font-(--font-mono) text-4xl text-(--rx-ember) mt-2">{oneRM} kg</div>
+          <div className="border border-(--rx-brass) p-6 text-center bg-(--rx-steel) rounded-sm">
+            <span className="text-xs text-(--rx-bone)/50 uppercase tracking-wider">Tahmini 1RM</span>
+            {/* Sonuç yeşil (rx-ember) kalmaya devam ediyor */}
+            <div className="font-(--font-mono) text-4xl text-(--rx-ember) mt-2 font-bold">{oneRM} kg</div>
           </div>
         )}
       </div>

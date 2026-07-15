@@ -29,18 +29,28 @@ export default function Header() {
         {/* Masaüstü menü */}
         <nav className="hidden md:flex items-center gap-8 text-sm text-(--rx-bone)/80">
           {navLinks.map((l) => (
-            <Link key={l.href} href={l.href}>{l.label}</Link>
+            <Link key={l.href} href={l.href} className="hover:text-(--rx-bone) transition-colors">
+              {l.label}
+            </Link>
           ))}
 
-          <div className="relative" onMouseEnter={() => setResourcesOpen(true)} onMouseLeave={() => setResourcesOpen(false)}>
-            <button className="flex items-center gap-1">
+          <div 
+            className="relative" 
+            onMouseEnter={() => setResourcesOpen(true)} 
+            onMouseLeave={() => setResourcesOpen(false)}
+          >
+            <button className="flex items-center gap-1 hover:text-(--rx-bone) transition-colors cursor-pointer">
               Kaynaklar <span className="text-xs">▾</span>
             </button>
             {resourcesOpen && (
               <div className="absolute top-full left-0 pt-3">
                 <div className="bg-(--rx-steel) border border-white/10 min-w-[200px] py-2">
                   {resources.map((r) => (
-                    <Link key={r.href} href={r.href} className="block px-4 py-2 text-sm hover:bg-white/5">
+                    <Link 
+                      key={r.href} 
+                      href={r.href} 
+                      className="block px-4 py-2 text-sm hover:bg-white/5 hover:text-(--rx-bone) transition-colors"
+                    >
                       {r.label}
                     </Link>
                   ))}
@@ -51,14 +61,20 @@ export default function Header() {
         </nav>
 
         <div className="flex items-center gap-4">
-          <Link href="/giris" className="text-sm text-(--rx-bone)/70 hidden sm:block">Üye Girişi</Link>
-          <Link href="/bize-katil" className="bg-(--rx-ember) text-white text-sm px-4 py-2 rounded-sm font-medium">
+          <Link href="/giris" className="text-sm text-(--rx-bone)/70 hidden sm:block hover:text-(--rx-bone) transition-colors">
+            Üye Girişi
+          </Link>
+          {/* bg-(--rx-ember) yeni lacivert bg-(--rx-action) ile güncellendi */}
+          <Link 
+            href="/bize-katil" 
+            className="bg-(--rx-action) text-white text-sm px-4 py-2 rounded-sm font-medium hover:bg-opacity-90 transition-all"
+          >
             Bize Katıl
           </Link>
 
           {/* Hamburger - sadece mobilde */}
           <button
-            className="md:hidden flex flex-col gap-1.5 p-2"
+            className="md:hidden flex flex-col gap-1.5 p-2 cursor-pointer"
             onClick={() => setMobileOpen(!mobileOpen)}
             aria-label="Menüyü aç/kapat"
           >
@@ -73,7 +89,7 @@ export default function Header() {
       {mobileOpen && (
         <nav className="md:hidden border-t border-white/10 bg-(--rx-ink) px-6 py-4 flex flex-col gap-4 text-sm text-(--rx-bone)/80">
           {[...navLinks, ...resources].map((l) => (
-            <Link key={l.href} href={l.href} onClick={() => setMobileOpen(false)}>
+            <Link key={l.href} href={l.href} onClick={() => setMobileOpen(false)} className="hover:text-(--rx-bone) transition-colors">
               {l.label}
             </Link>
           ))}

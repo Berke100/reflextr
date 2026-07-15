@@ -37,22 +37,22 @@ function Counter({ target, suffix }: { target: number; suffix: string }) {
 export default function Hero() {
   return (
     <section className="relative h-screen flex flex-col justify-end pb-16 overflow-hidden">
-      {/* Video yerine tam ekran arka plan fotoğrafı yerleştirildi */}
+      {/* Tam ekran arka plan fotoğrafı, saydamlaştırma olmadan */}
       <Image
-        src="/media/koray-girgin.jpeg"
+        src="/media/reflexwp.png"
         alt="Reflex Arka Plan"
         fill
-        priority // Sayfa açılır açılmaz hızlı yüklenmesi için kritik
-        className="object-cover opacity-40 select-none pointer-events-none"
+        priority
+        className="object-cover select-none pointer-events-none"
       />
-      
-      {/* Yazıların okunabilirliğini artıran gradyan gölge */}
-      <div className="absolute inset-0 bg-linear-to-t from-(--rx-ink) via-(--rx-ink)/60 to-transparent" />
+
+      {/* Sadece alt kısımda, yazıların okunabilirliği için gradyan gölge */}
+      <div className="absolute inset-0 bg-linear-to-t from-(--rx-ink) via-(--rx-ink)/30 to-transparent" />
 
       <div className="relative max-w-7xl mx-auto px-6 w-full">
         <h1 className="font-(--font-display) text-[clamp(2.5rem,8vw,6rem)] leading-[0.95] text-(--rx-bone) uppercase">
-          Gücünü <span className="text-(--rx-ember)">Kanıtla</span>
-        </h1>
+  Gücünü <span className="text-(--rx-action)">Kanıtla</span>
+</h1>
         <p className="text-(--rx-bone)/70 max-w-xl mt-4">
           Türkiye Vücut Geliştirme, Fitness ve Bilek Güreşi Federasyonu Başkanı
           Koray Girgin&apos;in kurduğu Reflex&apos;te antrenman yapıyorsun.
