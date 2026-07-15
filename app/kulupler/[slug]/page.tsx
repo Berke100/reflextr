@@ -1,5 +1,6 @@
 import { notFound } from "next/navigation";
 import ZoomableImage from "@/components/ZoomableImage";
+import ClubMap from "@/components/ClubMap";
 
 type ClubDetail = {
   name: string;
@@ -55,6 +56,7 @@ export default async function ClubDetailPage({ params }: { params: Promise<{ slu
           <div>
             <h3 className="text-(--rx-bone) mb-2 uppercase text-xs tracking-widest">Adres</h3>
             <p>{club.address}</p>
+            <ClubMap address={club.address} />
           </div>
           <div>
             <h3 className="text-(--rx-bone) mb-2 uppercase text-xs tracking-widest">Çalışma Saatleri</h3>
