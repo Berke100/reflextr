@@ -1,5 +1,5 @@
-import Image from "next/image";
 import { notFound } from "next/navigation";
+import ZoomableImage from "@/components/ZoomableImage";
 
 type ClubDetail = {
   name: string;
@@ -49,9 +49,7 @@ export default async function ClubDetailPage({ params }: { params: Promise<{ slu
           {club.name}
         </h1>
 
-        <div className="relative w-full h-80 mb-8">
-          <Image src={club.img} alt={club.name} fill className="object-cover" />
-        </div>
+        <ZoomableImage src={club.img} alt={club.name} />
 
         <div className="grid md:grid-cols-2 gap-8 text-sm text-(--rx-bone)/70">
           <div>

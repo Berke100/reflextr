@@ -1,14 +1,27 @@
-import type { Metadata } from "next";
+import Link from "next/link";
 
-export const metadata: Metadata = {
-  title: "Üyelik Paketleri | Reflex",
-  description: "İhtiyacına uygun Reflex üyelik paketini seç, bütçene ve hedeflerine en uygun planla hemen antrenmana başla.",
+type Package = {
+  name: string;
+  studentPrice: string;
+  regularPrice: string;
+  note: string;
+  highlight?: boolean;
 };
 
-const packages = [
-  { name: "Aylık", price: "₺XXX", note: "Taahhütsüz" },
-  { name: "6 Aylık", price: "₺XXX", note: "En popüler", highlight: true },
-  { name: "Yıllık", price: "₺XXX", note: "En avantajlı" },
+const packages: Package[] = [
+  {
+    name: "Aylık",
+    studentPrice: "₺2.000",
+    regularPrice: "₺2.500",
+    note: "Taahhütsüz",
+  },
+  {
+    name: "Yıllık",
+    studentPrice: "₺20.000",
+    regularPrice: "₺25.000",
+    note: "En avantajlı",
+    highlight: true,
+  },
 ];
 
 export default function MembershipPage() {
@@ -22,27 +35,41 @@ export default function MembershipPage() {
           İhtiyacına uygun üyelik paketini seç, hemen antrenmana başla.
         </p>
 
-        <div className="grid md:grid-cols-3 gap-6">
+        <div className="grid md:grid-cols-2 gap-6 max-w-2xl">
           {packages.map((p) => (
             <div
               key={p.name}
-              className={`p-8 border rounded-sm transition-all duration-300 ${
-                p.highlight 
-                  ? "border-(--rx-brass) bg-(--rx-steel) shadow-lg shadow-(--rx-brass)/5" 
-                  : "border-white/10 bg-transparent hover:border-white/20"
-              }`}
+              className={`p-8 border rounded-sm transition-all duration-300 ${p.highlight ? "border-(--rx-brass) bg-(--rx-steel)" : "border-white/10"}`}
             >
               <h3 className="text-(--rx-bone) font-(--font-display) text-xl uppercase">{p.name}</h3>
-              {/* Fiyat alanlarının rengi yeşilden kırmızıya (rx-action) çekildi */}
-              <div className="text-(--rx-action) font-(--font-mono) text-2xl my-4">{p.price}</div>
-              <p className="text-(--rx-bone)/60 text-sm mb-6">{p.note}</p>
-              {/* Buton arka planı kırmızı (rx-action) olmaya devam ediyor */}
-              <button className="w-full bg-(--rx-action) text-white py-3 text-sm font-medium uppercase tracking-wider hover:bg-opacity-90 transition-opacity cursor-pointer">
+              <p className="text-(--rx-bone)/60 text-sm mt-1 mb-4">{p.note}</p>
+
+              <div className="border-t border-white/10 pt-4 space-y-3">
+                <div>
+                  <span className="text-(--rx-brass) text-xs uppercase tracking-widest">Öğrenci</span>
+                  {/* Öğrenci fiyatı yeşilden (rx-ember) kırmızıya (rx-action) çekildi */}
+                  <div className="text-(--rx-action) font-(--font-mono) text-2xl">{p.studentPrice}</div>
+                </div>
+                <div>
+                  <span className="text-(--rx-bone)/50 text-xs uppercase tracking-widest">Normal</span>
+                  <div className="text-(--rx-bone) font-(--font-mono) text-2xl">{p.regularPrice}</div>
+                </div>
+              </div>
+
+              {/* Buton, Link yapısına dönüştürüldü ve kırmızı (rx-action) stili korundu */}
+              <Link
+                href={`/iletisim?paket=${p.name.toLowerCase()}`}
+                className="block text-center w-full bg-(--rx-action) text-white py-3 text-sm mt-6 uppercase tracking-wider font-medium hover:bg-opacity-90 transition-opacity rounded-sm cursor-pointer"
+              >
                 Üye Ol
-              </button>
+              </Link>
             </div>
           ))}
         </div>
+
+        <p className="text-(--rx-bone)/40 text-xs mt-8">
+          Öğrenci fiyatları için geçerli öğrenci belgesi gösterilmesi gerekmektedir.
+        </p>
       </div>
     </main>
   );

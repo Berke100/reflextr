@@ -9,7 +9,7 @@ export async function POST(req: Request) {
   try {
     await resend.emails.send({
       from: "Reflex Site <onboarding@resend.dev>", // kendi doğrulanmış domainin olunca değişecek
-      to: "info@reflextr.com", // gerçek e-posta adresinle değiştir
+      to: "berkegirgin16@gmail.com", // gerçek e-posta adresinle değiştir
       subject: `Yeni İletişim Formu: ${name}`,
       text: `İsim: ${name}\nE-posta: ${email}\n\nMesaj:\n${message}`,
     });

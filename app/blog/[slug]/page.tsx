@@ -1,5 +1,5 @@
-import Image from "next/image";
 import { notFound } from "next/navigation";
+import ZoomableImage from "@/components/ZoomableImage";
 
 type BlogPost = {
   title: string;
@@ -57,9 +57,9 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
         <h1 className="font-(--font-display) text-4xl text-(--rx-bone) uppercase mt-2 mb-8">
           {post.title}
         </h1>
-        <div className="relative w-full h-80 mb-8">
-          <Image src={post.img} alt={post.title} fill className="object-cover" />
-        </div>
+
+        <ZoomableImage src={post.img} alt={post.title} />
+
         <div className="text-(--rx-bone)/70 text-sm leading-relaxed space-y-4">
           {post.content.map((p, i) => (
             <p key={i}>{p}</p>
